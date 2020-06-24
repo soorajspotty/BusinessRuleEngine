@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
     <Compile Include="IPaymentRequest.cs" />
     <Compile Include="PaymentRequest.cs" />
     <Compile Include="Program.cs" />
