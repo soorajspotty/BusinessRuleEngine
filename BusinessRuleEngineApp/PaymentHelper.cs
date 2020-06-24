@@ -25,9 +25,12 @@ namespace BusinessRuleEngineApp
         public PaymentRequest ProcessPaymentRequest(string paymentType)
         {
             paymentRequestObj.PaymentType = paymentType;
+
+            //Initialize payment types in a chain structure
+            //so that each request traverse through each payment type until the request is processed.
             VideoPayment videoPaymentObj = new VideoPayment(null, paymentRequestObj);
-            UpgradeToMembrshipPayment upgradeToMembrshipPaymentObj = new UpgradeToMembrshipPayment(videoPaymentObj, paymentRequestObj);
-            MembershipPayment membershipPaymentObj = new MembershipPayment(upgradeToMembrshipPaymentObj, paymentRequestObj);
+            UpgradeToMembershipPayment upgradeToMembershipPaymentObj = new UpgradeToMembershipPayment(videoPaymentObj, paymentRequestObj);
+            MembershipPayment membershipPaymentObj = new MembershipPayment(upgradeToMembershipPaymentObj, paymentRequestObj);
             BookPayment bookPaymentObj = new BookPayment(membershipPaymentObj, paymentRequestObj);
             PhysicalProductPayment physicalProductPaymentObj = new PhysicalProductPayment(bookPaymentObj, paymentRequestObj);
 

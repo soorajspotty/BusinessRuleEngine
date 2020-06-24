@@ -108,9 +108,9 @@ namespace BusinessRuleEngineApp
     /// <summary>
     /// class to handle Upgrade To Membrship Payment
     /// </summary>
-    public class UpgradeToMembrshipPayment : PaymentBase
+    public class UpgradeToMembershipPayment : PaymentBase
     {
-        public UpgradeToMembrshipPayment(PaymentBase nextHandler, PaymentRequest requestObj) : base(nextHandler, requestObj) { }
+        public UpgradeToMembershipPayment(PaymentBase nextHandler, PaymentRequest requestObj) : base(nextHandler, requestObj) { }
 
         public override void HandleRequest()
         {
@@ -118,7 +118,7 @@ namespace BusinessRuleEngineApp
             {
                 Console.WriteLine("Upgrade To Membrship Payment process checking...\n");
                 Thread.Sleep(1000);
-                if (RequestObj.PaymentType == Constants.UpgradeToMembrshipPayment)
+                if (RequestObj.PaymentType == Constants.UpgradeToMembershipPayment)
                 {
                     //TO DO - Apply Upgare and send email 
                     RequestObj.RequestMessages.Add("Membership upgraded and email send");
